@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 
 def _conv1d(input_layer, filter_size, strides, kernel_size, activation):
@@ -33,9 +34,9 @@ def _network(input_layer, name, message_length, strides):
 
 
 def build_input_layers(message_length, key_length):
-    msg = tf.placeholder(dtype=tf.float32, shape=(None, message_length, 1),
+    msg = tf.compat.v1.placeholder(dtype=tf.float32, shape=(None, message_length, 1),
                          name="message")
-    key = tf.placeholder(dtype=tf.float32, shape=(None, key_length, 1),
+    key = tf.compat.v1.placeholder(dtype=tf.float32, shape=(None, key_length, 1),
                          name="key")
     return msg, key
 

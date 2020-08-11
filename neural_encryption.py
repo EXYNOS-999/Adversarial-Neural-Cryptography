@@ -2,7 +2,8 @@
 
 import time
 import datetime
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from datagen import get_random_block
 from session_manager import save_session
 from net import build_input_layers, build_network
